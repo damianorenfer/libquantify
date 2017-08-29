@@ -27,7 +27,7 @@ sudo make install
 
 Windows users :
 
-Sorry I have not tested it yet, but it should not be a difficult to build and install.
+Sorry I have not tested it yet, but it should not be difficult to build and install.
 
 ## Usage
 
