@@ -35,22 +35,27 @@ class UnitUnsupportedOperation : public std::exception
 {
 public:
 
-    UnitUnsupportedOperation(const Unit &unit, const char *operation) : unit(unit), operation(operation){}
-
-    virtual const char* what() const throw()
+    UnitUnsupportedOperation(const Unit &unit, const char *operation) : unit(unit), operation(operation)
     {
-        std::stringstream exceptionStream;
-        exceptionStream << "Unit \"" << unit.getSymbol() << "\" does not support operation \"" << operation << "\".";
+        std::stringstream ss;
+        ss << "Unit \"" << unit.getSymbol() << "\" does not support operation \"" << operation << "\".";
         if(!Utils::areEqual(unit.getOffset(), 0))
         {
-            exceptionStream << " Hint : units with an offset different from 0 do not support multiplication nor division.";
+            ss << " Hint : units with an offset different from 0 do not support multiplication nor division.";
         }
-        return exceptionStream.str().c_str();
+
+        message = std::move(ss.str());
     }
 
-private:
+    virtual const char* what() const throw()
+    {        
+        return message.c_str();
+    }
+
+private:    
     const Unit &unit;
     const char *operation;
+    std::string message;
 };
 
 }

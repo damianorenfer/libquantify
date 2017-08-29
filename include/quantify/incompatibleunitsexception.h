@@ -34,18 +34,23 @@ class IncompatibleUnitsException : public std::exception
 {
 public:
 
-    IncompatibleUnitsException(const Unit &leftUnit, const Unit &rightUnit) : leftUnit(leftUnit), rightUnit(rightUnit){}
+    IncompatibleUnitsException(const Unit &leftUnit, const Unit &rightUnit) : leftUnit(leftUnit), rightUnit(rightUnit)
+    {
+        std::stringstream ss;
+        ss << "Units \"" << leftUnit.getSymbol() << "\" and \"" << rightUnit.getSymbol() <<  "\" are not compatible.";
+
+        message = std::move(ss.str());
+    }
 
     virtual const char *what() const throw()
     {
-        std::stringstream exceptionStream;
-        exceptionStream << "Units \"" << leftUnit.getSymbol() << "\" and \"" << rightUnit.getSymbol() << "\" are not compatible.";
-        return exceptionStream.str().c_str();
+        return message.c_str();
     }
 
-private:
+private:        
     const Unit &leftUnit;
     const Unit &rightUnit;
+    std::string message;
 };
 
 }
