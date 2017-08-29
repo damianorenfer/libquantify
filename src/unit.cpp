@@ -81,7 +81,7 @@ void Unit::assertCanMultiply() const
 {
     if(!Utils::areEqual(this->offset, 0.0))
     {
-        throw UnitUnsupportedOperation(*this, "*");
+        throw UnitUnsupportedOperationException(*this, "*");
     }
 }
 
@@ -89,7 +89,7 @@ void Unit::assertCanDivide() const
 {
     if(!Utils::areEqual(this->offset, 0.0))
     {
-        throw UnitUnsupportedOperation(*this, "/");
+        throw UnitUnsupportedOperationException(*this, "/");
     }
 }
 

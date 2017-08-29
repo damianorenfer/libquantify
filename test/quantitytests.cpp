@@ -78,7 +78,7 @@ TEST_F(QuantityTest, Equal)
         oneFoot.equals(oneSecond);
     }
     catch (IncompatibleUnitsException &ex)
-    {
+    {             
         exceptionOccured = true;
     }
 
@@ -182,7 +182,7 @@ TEST_F(QuantityTest, Multiply)
     {
         oneMeter.multiplyBy(oneCelsius);
     }
-    catch (UnitUnsupportedOperation &ex)
+    catch (UnitUnsupportedOperationException &ex)
     {
         exceptionOccured = true;
     }
@@ -201,7 +201,7 @@ TEST_F(QuantityTest, Divide)
     {
         oneMeter.divideBy(oneCelsius);
     }
-    catch (UnitUnsupportedOperation &ex)
+    catch (UnitUnsupportedOperationException &ex)
     {
         exceptionOccured = true;
     }

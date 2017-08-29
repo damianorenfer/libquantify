@@ -31,11 +31,11 @@
 
 namespace Quantify {
 
-class UnitUnsupportedOperation : public std::exception
+class UnitUnsupportedOperationException : public std::exception
 {
 public:
 
-    UnitUnsupportedOperation(const Unit &unit, const char *operation) : unit(unit), operation(operation)
+    UnitUnsupportedOperationException(const Unit &unit, const char *operation) : unit(unit), operation(operation)
     {
         std::stringstream ss;
         ss << "Unit \"" << unit.getSymbol() << "\" does not support operation \"" << operation << "\".";

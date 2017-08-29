@@ -83,7 +83,7 @@ TEST_F(UnitTest, Power)
     {
         Unit celsius2 = celsius.power(2);
     }
-    catch (UnitUnsupportedOperation &ex)
+    catch (UnitUnsupportedOperationException &ex)
     {
         exceptionOccurred = true;
     }
@@ -112,7 +112,7 @@ TEST_F(UnitTest, Multiply)
     {
         Unit celsius2 = celsius.multiplyBy(kelvin);
     }
-    catch (UnitUnsupportedOperation &ex)
+    catch (UnitUnsupportedOperationException &ex)
     {
         exceptionOccurred = true;
     }
@@ -135,7 +135,7 @@ TEST_F(UnitTest, Divide)
     {
         Unit celsius2 = celsius.divideBy(3.0);
     }
-    catch (UnitUnsupportedOperation &ex)
+    catch (UnitUnsupportedOperationException &ex)
     {
         exceptionOccurred = true;
     }
