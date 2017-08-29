@@ -47,6 +47,30 @@ int main(int argc, char *argv[])
    Quantity speedInKph = speed.convertTo(StandardUnits::SpeedUnits::kilometerPerHour);
    Quantity speedInMph = speed.convertTo(StandardUnits::SpeedUnits::milePerHour);
 
+   Quantity tempInDegreeCelsius(StandardUnits::TemperatureUnits::degreeCelsius, 36.9);
+   Quantity tempInDegreeFahrenheit = tempInDegreeCelsius.convertTo(StandardUnits::TemperatureUnits::degreeFahrenheit);
+
+   try
+   {
+      // will throw UnitUnsupportedOperationException because units with offset do not support composition
+      Quantity tempAndTime = tempInDegreeCelsius * seconds;
+   }
+   catch(std::exception &ex)
+   {
+      std::cout << ex.what() << std::endl;
+   }
+
+   try
+   {
+      // will throw IncompatibleUnitsException because units are not in the same dimension (not compatible)
+      // same would happen with conversions
+      Quantity dummySum = speed + meters;
+   }
+   catch(std::exception &ex)
+   {        
+      std::cout << ex.what() << std::endl;
+   }
+
    return 0;
 }
 ```
