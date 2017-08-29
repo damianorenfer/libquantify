@@ -2,7 +2,7 @@ project (quantify)
 cmake_minimum_required (VERSION 2.8)
 
 set (QUANTIFY_SOVERSION "0")
-set (QUANTIFY_VERSION "0.1")
+set (QUANTIFY_VERSION "0.1.1")
 
 set (WARNINGS "-Werror -W -Wall -Wextra -Wundef -Wunused -Wuninitialized -Wcast-align -Wpointer-arith -Woverloaded-virtual -Wnon-virtual-dtor -fno-common")
 set (VISIBILITY "-fvisibility=hidden -fvisibility-inlines-hidden")
