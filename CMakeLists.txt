@@ -3,8 +3,11 @@ cmake_minimum_required (VERSION 2.8)
 
 option(WITH_TESTING "Build test programs" OFF)
 
-set (QUANTIFY_SOVERSION "0")
-set (QUANTIFY_VERSION "0.1.1")
+set (QUANTIFY_MAJOR "0")
+set (QUANTIFY_MINOR "1")
+set (QUANTIFY_PATCH "1")
+set (QUANTIFY_SOVERSION ${QUANTIFY_MAJOR})
+set (QUANTIFY_VERSION ${QUANTIFY_MAJOR}.${QUANTIFY_MINOR}.${QUANTIFY_PATCH})
 
 set (WARNINGS "-Werror -W -Wall -Wextra -Wundef -Wunused -Wuninitialized -Wcast-align -Wpointer-arith -Woverloaded-virtual -Wnon-virtual-dtor -fno-common")
 set (VISIBILITY "-fvisibility=hidden -fvisibility-inlines-hidden")
