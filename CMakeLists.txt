@@ -1,6 +1,8 @@
 project (quantify)
 cmake_minimum_required (VERSION 2.8)
 
+option(WITH_TESTING "Build test programs" OFF)
+
 set (QUANTIFY_SOVERSION "0")
 set (QUANTIFY_VERSION "0.1.1")
 
@@ -13,7 +15,11 @@ include_directories (
 )
 
 add_subdirectory (src)
-add_subdirectory (test)
+
+if(WITH_TESTING)
+	enable_testing()
+	add_subdirectory (test)
+endif(WITH_TESTING)
 
 if (NOT DEFINED CMAKE_INSTALL_LIBDIR)
         set (CMAKE_INSTALL_LIBDIR lib)
