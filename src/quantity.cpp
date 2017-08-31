@@ -196,7 +196,7 @@ double Quantity::getValue() const
 
 void Quantity::setValue(double value)
 {
-    value = value;
+    this->value = value;
 }
 
 Unit Quantity::getUnit() const
